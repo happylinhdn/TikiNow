@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TikiNow</string>
+    <string name="dich_vu_tien_ich">Dịch vụ tiện ích</string>
+    <string name="uu_dai_hop_tac"><![CDATA[Ưu đãi & hợp tác]]></string>
+    <string name="cac_uu_dai">Các ưu đãi cho chủ thẻ ngân hàng</string>
+    <string name="hot_key">Từ khoá hot</string>
+    <string name="ve_may_bay">Vé máy bay</string>
+</resources>
