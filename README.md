@@ -1,9 +1,9 @@
 # TikiNow example
-This is Tiki Now example written by Java base on MVP architecture pattern.
-
-# Feature:
+  - This is Tiki Now example written by Java base on MVP architecture pattern.
   - Show list of hot key as the below:
 ![HotKey Horizontal Listview](./demo.gif)
+
+# Feature:
   - If the keyword is more than one word, then display in two lines.
   - Background color is random.
 
@@ -15,7 +15,7 @@ This is Tiki Now example written by Java base on MVP architecture pattern.
 [APK download](./tikinow.apk)
 
 # Direction for testcase:
-  - Demo data set at happy.linhdn.tikinow.util.Constant.java
+  - Demo data set at [Constant.java](./app/src/main/java/happy/linhdn/tikinow/util/Constant.java)
   - List of keywords:
 
  ```java
@@ -57,3 +57,35 @@ This is Tiki Now example written by Java base on MVP architecture pattern.
             R.color.color_blue_1,
     };
 ```
+
+# Run UnitTest with robolectric
+- Here is example to test feature, If the keyword is more than one word, then display in two lines.
+```Java
+@Test
+ public void testHotKeySingleWord() throws Exception {
+     String keyword = "xiaomi";
+     String printKeyword = "xiaomi";
+
+     HotKey hotKey = new HotKey(keyword);
+     Assert.assertEquals(printKeyword, hotKey.getFormatKeyword());
+     Assert.assertEquals(keyword, hotKey.getKeyword());
+     Assert.assertEquals(hotKey.getKeyword(), hotKey.getFormatKeyword());
+ }
+ ```
+
+ ```java
+ @Test
+ public void testHotKeyLongWord() throws Exception {
+     String keyword = "bitis hunter x";
+     String printKeyword = "bitis \nhunter x";
+
+     HotKey hotKey = new HotKey(keyword);
+     Assert.assertEquals(printKeyword, hotKey.getFormatKeyword());
+     Assert.assertEquals(keyword, hotKey.getKeyword());
+     //Keyword will not same format keyword
+     Assert.assertNotEquals(hotKey.getKeyword(), hotKey.getFormatKeyword());
+ }
+ ```
+
+  - More about unit test:
+  [ref to](./app/src/test/java/happy/linhdn/tikinow/TikiNowTestCase.java)
