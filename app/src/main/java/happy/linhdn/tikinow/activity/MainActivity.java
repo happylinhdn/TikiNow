@@ -11,6 +11,7 @@ import happy.linhdn.tikinow.presenter.MainActivityPresenter;
 import happy.linhdn.tikinow.view.MainActivityView;
 
 public class MainActivity extends BaseActivity<MainActivityView, MainActivityPresenter> implements MainActivityView {
+    public HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,8 @@ public class MainActivity extends BaseActivity<MainActivityView, MainActivityPre
 
     @Override
     public void showHomePage() {
-        pushFragment(new HomeFragment(), Constant.TransitionType.NONE, true);
+        homeFragment = new HomeFragment();
+        pushFragment(homeFragment, Constant.TransitionType.NONE, true);
     }
 
     @Override

@@ -21,6 +21,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -43,4 +48,6 @@ dependencies {
     /** Mosby MVP */
     implementation 'com.hannesdorfmann.mosby:mvp:2.0.1'
     implementation 'com.hannesdorfmann.mosby:viewstate:2.0.1'
+
+    testImplementation 'org.robolectric:robolectric:4.1'
 }

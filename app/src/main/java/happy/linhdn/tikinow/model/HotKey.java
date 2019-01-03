@@ -5,29 +5,29 @@ import android.text.TextUtils;
 import happy.linhdn.tikinow.util.Utility;
 
 public class HotKey {
-    private String name;
+    private String keyword;
     private int backgroundColor;
 
-    public HotKey(String name) {
-        this.name = name;
+    public HotKey(String keyword) {
+        this.keyword = keyword;
         this.backgroundColor = Utility.getRandomColor();
     }
 
-    public String getName() {
-        return name;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
-    public String getFormatName() {
-        if (TextUtils.isEmpty(name)) {
+    public String getFormatKeyword() {
+        if (TextUtils.isEmpty(keyword)) {
             return "";
         }
         String formatName = "";
 
-        String[] splits = name.split("\\s");
+        String[] splits = keyword.split("\\s");
         if (splits != null && splits.length > 1) {
             for (int i = 0; i < splits.length/2;i++) {
                 formatName += splits[i] + " ";
@@ -39,7 +39,7 @@ public class HotKey {
                 formatName += splits[i] + " ";
             }
         } else {
-            formatName = name;
+            formatName = keyword;
         }
         return formatName.trim();
     }

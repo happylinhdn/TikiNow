@@ -12,6 +12,9 @@ import happy.linhdn.tikinow.model.Service;
 import happy.linhdn.tikinow.view.HomeView;
 
 public class HomePresenter extends BasePresenter<HomeView> {
+    public List<Service> services = new ArrayList<>();
+    public List<HotKey> hotKeys = new ArrayList<>();
+
     @Override
     public void onNewViewStateInstance() {
         if (isViewAttached()) {
@@ -19,9 +22,9 @@ public class HomePresenter extends BasePresenter<HomeView> {
         }
     }
 
-    private void loadData() {
+    public void loadData() {
 //        Load service demo
-        List<Service> services = new ArrayList<>();
+        services = new ArrayList<>();
         services.add(new Service("Vé máy bay", R.drawable.ic_flight));
         services.add(new Service("Mua bảo hiểm online", R.drawable.ic_flight));
         services.add(new Service("Mua thẻ điện thoại", R.drawable.ic_flight));
@@ -30,11 +33,18 @@ public class HomePresenter extends BasePresenter<HomeView> {
         getView().setServiceData(services);
 
 //        Load Hot key demo
-        List<HotKey> hotKeys = new ArrayList<>();
+        hotKeys = new ArrayList<>();
         for (String key : Constant.HOT_KEY_LIST_DEMO) {
             hotKeys.add(new HotKey(key));
         }
 
+        getView().setHotKeyData(hotKeys);
+    }
+
+    public void clearData() {
+        services.clear();
+        hotKeys.clear();
+        getView().setServiceData(services);
         getView().setHotKeyData(hotKeys);
     }
 }
